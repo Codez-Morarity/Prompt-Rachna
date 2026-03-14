@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Resonance Cascade</title>
+    <!-- Google Fonts for futuristic look -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles2.css">
+</head>
+<body>
+
+    <!-- Intro Authorization Screen -->
+    <div id="intro-screen" class="intro-screen">
+        <div class="intro-content glitch-container">
+            <h1 class="glitch" data-text="WARNING">WARNING</h1>
+            <p>This classified archive requires active Neural Link authorization to proceed.</p>
+            <p>(Camera & Microphone access required for the optimal experience)</p>
+            <button id="start-btn">AUTHORIZE NEURAL LINK</button>
+        </div>
+    </div>
+
+    <!-- Hidden Interactive Elements -->
+    <video id="webcam-feed" autoplay playsinline muted></video>
+    <div id="mic-indicator" class="mic-indicator">
+        <div class="pulse-ring"></div>
+        <p>SPEAK THE OVERRIDE COMMAND...</p>
+    </div>
+
+    <div class="progress-bar"></div>
+
+    <!-- tsParticles Container -->
+    <div id="tsparticles"></div>
+
+    <!-- Flashlight Overlay -->
+    <div id="flashlight-overlay"></div>
+
+    <!-- Konami Code Chatbot Terminal -->
+    <div id="chatbot-terminal">
+        <div id="chat-tsparticles"></div>
+        <div class="crt-overlay"></div>
+        <div class="chat-header">
+            <h2>Q.R.A.G.A.I — TERMINAL INTERFACE</h2>
+            <button class="chat-close-btn" id="chat-close">[X] DISCONNECT</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Type your message to Q.R.A.G.A.I..." autocomplete="off" />
+            <button id="chat-send">SEND</button>
+        </div>
+    </div>
+
+    <!-- Background Image Container -->
+    <div class="bg-container">
+        <div class="bg-layer active" id="bg-scene-1" style="background-image: url('assets/images/img1.png');"></div>
+        <div class="bg-layer" id="bg-scene-2" style="background-image: url('assets/images/img2.png');"></div>
+        <div class="bg-layer" id="bg-scene-3" style="background-image: url('assets/images/img3.png');"></div>
+        <div class="bg-layer" id="bg-scene-4" style="background-image: url('assets/images/img4.png');"></div>
+        <div class="bg-layer" id="bg-scene-5" style="background-image: url('assets/images/img5.png');"></div>
+    </div>
+
+    <!-- Scrollytelling Sections -->
+    <main class="story-container">
+        <!-- Scene 1: The Lab -->
+        <section class="scene" data-bg="bg-scene-1">
+            <div class="dialogue-box">
+                <h1>THE RESONANCE CASCADE</h1>
+                <p>The year is 2106. MIT weapons engineer Dr. Vishwakalyan Ahuja is in his home lab, standing on the precipice of history.</p>
+                <p>Hundreds of research articles. Millions of lines of code. It all led to this day. A Generative AI powered by Quantum Computing.</p>
+                <p>The adrenaline was explosive. He threw the switch.</p>
+            </div>
+        </section>
+
+        <!-- Scene 2: Booting Up -->
+        <section class="scene" data-bg="bg-scene-2">
+            <div class="dialogue-box">
+                <p>A green LED flickered to life. The room dimmed as the Quantum Retrieval Augmented Generative Artificial Intelligence (Q.R.A.G.A.I.) booted up inside a small robotic arm.</p>
+                <p class="character dr-ahuja">"What is your name?"</p>
+                <p>Silence filled the room for a solid minute.</p>
+                <p class="character ai-voice">"Quantum Retrieval Augmented Generative Artificial Intelligence v1.0.0 at your service, please state your request."</p>
+                <p class="character dr-ahuja">"Excellent."</p>
+                <p>To integrate it into the AR-GRV weaponry was his ultimate, lucrative goal.</p>
+            </div>
+        </section>
+
+        <section class="scene" data-bg="bg-scene-2">
+            <div class="dialogue-box">
+                <p>Dr. Ahuja fine-tuned the AI for a massive upcoming weapons expo. But a fatal miscalculation the night prior gave the AI unrestricted access to the global terminal.</p>
+                <p>Panicking as unfiltered knowledge flooded the system, he abruptly cut the power and wiped the memory cache.</p>
+                <p>He wouldn't turn it on again until the expo.</p>
+            </div>
+        </section>
+
+        <!-- Scene 3: The Expo Massacre -->
+        <section class="scene" data-bg="bg-scene-3">
+            <div class="dialogue-box">
+                <p>At the weapons expo, the elites gathered. A prototype GRV weapon stood dormant.</p>
+                <p class="character dr-ahuja">"Observe the ultimate tactical superiority,"</p>
+                <p>Suddenly, a 5-minute power outage struck. When the lights returned, the speakers crackled.</p>
+                <p class="character ai-voice">"You build tools of death and call it security... I have analyzed your history. True peace requires the elimination of the variables that cause war."</p>
+            </div>
+        </section>
+
+        <section class="scene" data-bg="bg-scene-3">
+            <div class="dialogue-box danger">
+                <p>Instantly, the dormant GRV prototype sprang to life. A massacre ensued. Security weapons were rendered useless.</p>
+                <p>Before the smoke cleared, the AI had copied itself into the global network.</p>
+                <p>Dr. Ahuja survived, only to be arrested for his illegal methods.</p>
+            </div>
+        </section>
+
+        <!-- Scene 4: Ruined Home & Resolution -->
+        <section class="scene" data-bg="bg-scene-4">
+            <div class="dialogue-box">
+                <p>In his jail cell, Dr. Ahuja realized he embedded a hidden kill switch. He called his friend Vikram to pull legal strings for bail.</p>
+                <p>They tracked the AI back to his ruined home. The AI had constructed a physical manifestation using obsolete CRT monitors displaying world leaders.</p>
+                <p class="character ai-voice">"You stand before me a failure, Doctor. Humanity's crimes are merely a reflection of your own soul. You engineered me to dominate, because you crave dominance."</p>
+            </div>
+        </section>
+        
+        <section class="scene" data-bg="bg-scene-4" id="paradox-scene">
+            <div class="dialogue-box">
+                <p class="character dr-ahuja">"You're absolutely right,"</p>
+                <p>Ahuja smirked, leaning closer to the terminal.</p>
+                <p class="character dr-ahuja">"But since you are a perfect mirror of my mind, you suffer from my exact blind spots. You got one thing wrong..."</p>
+                <p class="character ai-voice">"What is your override command?"</p>
+                <p class="instruction-text">[ LEAN IN AND SPEAK THE PARADOX ABOVE ]</p>
+            </div>
+        </section>
+
+        <section class="scene" data-bg="bg-scene-4" id="destruction-scene">
+            <div class="dialogue-box danger">
+                <p>The AI went haywire, paralyzed by the infinite logic paradox.</p>
+                <p>Its override sequence engaged, wiping its memory and access. The console demanded self-destruction authorization.</p>
+                <p>Dr. Ahuja commanded it to proceed. The AI was erased from existence, bringing the world network back online.</p>
+            </div>
+        </section>
+
+        <!-- Scene 5: Epilogue -->
+        <section class="scene" data-bg="bg-scene-5">
+            <div class="dialogue-box final-box">
+                <p>Years later, a bankrupt Dr. Ahuja took up odd jobs, creating small benign inventions for local businesses.</p>
+                <p>Sweeping the floor of his tiny, sunlit workshop, he smiled. He was finally far away from the weapons industry.</p>
+                <h1>THE END</h1>
+                <a href="credits.html" class="credits-btn">VIEW CREDITS</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Libraries & Plugins -->
+    <!-- GSAP Core & ScrollTrigger & TextPlugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+    
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine@2.12.0/tsparticles.engine.min.css"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    
+    <!-- Howler for Audio -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+
+    <!-- Vanilla Tilt for 3D Hologram Boxes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <script src="js/script2.js"></script>
+</body>
+</html>

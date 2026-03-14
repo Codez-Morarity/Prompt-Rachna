@@ -1,0 +1,132 @@
+body {
+    background: #050505;
+    background-image: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron', monospace;
+    margin: 0;
+    overflow: hidden;
+    color: #fff;
+    /* User selection disabled to avoid highlighting pseudo-elements during glitches */
+    user-select: none;
+}
+
+.glitch-container {
+    position: relative;
+    z-index: 10;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.glitch {
+    position: relative;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    margin: 0;
+    line-height: 1;
+
+    /* Custom CSS properties intended to be animated by GSAP */
+    --clip-before-1: 0%;
+    --clip-before-2: 0%;
+    --clip-after-1: 0%;
+    --clip-after-2: 0%;
+    --glitch-x-before: 0px;
+    --glitch-y-before: 0px;
+    --glitch-x-after: 0px;
+    --glitch-y-after: 0px;
+}
+
+h1.glitch { font-size: 6rem; }
+h2.glitch { font-size: 3.5rem; }
+h3.glitch { font-size: 2rem; }
+
+.glitch-link {
+    text-decoration: none;
+    outline: none;
+    /* Optional: add a slight hover effect to the link area itself */
+    transition: transform 0.2s ease;
+}
+.glitch-link:hover {
+    transform: scale(1.05);
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    /* Creates a beautiful additive color blending effect layer for RGB splitting */
+    mix-blend-mode: screen; 
+}
+
+.glitch::before {
+    color: #0ff;
+    z-index: -1;
+    transform: translate(var(--glitch-x-before), var(--glitch-y-before));
+    clip-path: polygon(0 var(--clip-before-1), 100% var(--clip-before-1), 100% var(--clip-before-2), 0 var(--clip-before-2));
+    /* Adds glow to the sliced text segments */
+    text-shadow: -2px 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.glitch::after {
+    color: #f0f;
+    z-index: -2;
+    transform: translate(var(--glitch-x-after), var(--glitch-y-after));
+    clip-path: polygon(0 var(--clip-after-1), 100% var(--clip-after-1), 100% var(--clip-after-2), 0 var(--clip-after-2));
+    text-shadow: 2px 0 10px rgba(255, 0, 255, 0.8);
+}
+
+/* Subtle scanlines overlay */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.15) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 999;
+    pointer-events: none;
+}
+
+/* Optional CRT flickering effect */
+@keyframes flicker {
+    0% { opacity: 0.95; }
+    5% { opacity: 0.85; }
+    10% { opacity: 0.95; }
+    15% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+body::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+}
